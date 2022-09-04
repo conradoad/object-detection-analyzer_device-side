@@ -1,0 +1,13 @@
+sudo apt install python3-opencv
+sudo apt install git
+git clone https://gitlab.com/conradoad/tcc-ceca-conrado.git
+sudo apt install python3-pip
+pip3 install flask==2.0.1
+pip3 install flask-cors==3.0.10
+
+
+export FLASK_ENV=development
+export FLASK_APP=./server/app.py
+python3 -m flask run --host 0.0.0.0
+
+
