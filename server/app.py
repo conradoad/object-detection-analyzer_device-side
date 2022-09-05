@@ -119,16 +119,14 @@ def objectDetectionAnalysis(image, cascade, params):
     
     for i, x in enumerate(scaleFactors):
         scaleFactors[i] = round(x, 3)
-    
-    print(scaleFactors)
-
+        
     minSizeFrom = params["minSize_y_axis"]["from"]
     minSizeTo = params["minSize_y_axis"]["to"]
     minSizeSteps = params["minSize_y_axis"]["steps"]
     minSizes = np.linspace(minSizeFrom, minSizeTo, minSizeSteps)
     
     for i, x in enumerate(minSizes):
-        minSizes[i] = round(x, 1)
+        minSizes[i] = round(x, 4)
 
     imgGray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
