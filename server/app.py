@@ -237,7 +237,7 @@ def metrics():
 
     metrics['1.0 - Params'] = "Min. Size Face: " + str(round(params["minSize"]*100, 3)) + " / Scale Factor: " + str(round(params["scaleFactor"], 3)) + " / Min. Neighbors: " + str(params["minNeighbors"])
     metrics['1.1 - Full Image Resolution'] = str(IMG_HEIGHT) + " x " + str(IMG_WIDTH)
-    metrics['1.2 - Full Image Size (bytes)'] = '{0:,}'.format(image.size).replace(',','.')
+    metrics['1.2 - Full Image Size (bytes)'] = '{0:,}'.format(image.size)
 
     metrics['2.2 - Convert Image to Gray (s)'] = 0
     metrics['2.3 - Detection (s)'] = 0
@@ -262,12 +262,12 @@ def metrics():
     
     
     (encodedOriginalImage, rawOriginalImageSize, encodedOriginalImageSize) = buildBase64OriginalImage(image)
-    metrics['1.3 - Full Image Encoded Size (bytes)'] = '{0:,}'.format(encodedOriginalImageSize).replace(',','.')
+    metrics['1.3 - Full Image Encoded Size (bytes)'] = '{0:,}'.format(encodedOriginalImageSize)
     
     metrics['2.5 - Total execution time (s)'] = round(metrics['2.1 - Loading Image (s)'] + metrics['2.2 - Convert Image to Gray (s)'] + metrics['2.3 - Detection (s)'] + metrics['2.4 - Build Encoded Faces Images (s)'],3)
 
-    metrics['1.5 - Cropped Faces Images Total Size (bytes) / (% from full image size)'] = '{0:,}'.format(totalRawImagesSizes).replace(',','.') + " / " + str(round((totalRawImagesSizes/image.size)*100, 1)) + "%"
-    metrics['1.6 - Encoded Faces Images Total Size (bytes) / (% from full image encoded size)'] = '{0:,}'.format(groupedEncodedImagesSize).replace(',','.') + " / " + str(round((groupedEncodedImagesSize/encodedOriginalImageSize)*100, 1)) + "%"
+    metrics['1.5 - Cropped Faces Images Total Size (bytes) / (% from full image size)'] = '{0:,}'.format(totalRawImagesSizes) + " / " + str(round((totalRawImagesSizes/image.size)*100, 1)) + "%"
+    metrics['1.6 - Encoded Faces Images Total Size (bytes) / (% from full image encoded size)'] = '{0:,}'.format(groupedEncodedImagesSize) + " / " + str(round((groupedEncodedImagesSize/encodedOriginalImageSize)*100, 1)) + "%"
     metrics['3.1 - Faces images'] = encodedImagesArray
 
     print('Metrics was sent')
